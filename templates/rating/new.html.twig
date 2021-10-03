@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Index{% endblock %}
+
+{% block body %}
+
+{# templates/task/new.html.twig #}
+{% for message in app.flashes('success') %}
+ <div class="alert alert-success" role="alert">
+  {{ message }}
+ </div>
+{% endfor %}
+{{ form_start(form, {'action': path('rating_add'), 'attr': {'novalidate': 'novalidate'}}) }}
+ {{ form_widget(form) }}
+<button type="submit" class="btn btn-primary">Submit</button>
+{{ form_end(form) }}
+{% endblock %}
+

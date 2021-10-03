@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Index{% endblock %}
+
+{% block body %}
+
+<h1>
+    Test notation
+</h1>
+
+{{ render(controller('App\\Controller\\RatingController::new')) }}
+
+<!--div class="main-container" style="background-image: url('{{ asset('images/product-bg.png') }}')">
+</div-->
+
+<hr>
+
+<p>Username: {{ app.user.userIdentifier ?? 'Anonymous user' }}</p>
+
+    <p>
+        <strong>Rating Average: {{ avg }}</strong>
+    </p>
+
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+<p>
+    IS_AUTHENTICATED_FULLY
+</p>
+
+{% endif %}
+    {% for comment in comments %}
+    <div class="d-flex text-muted pt-3">
+        <p class="pb-3 mb-0 small lh-sm border-bottom">
+            <strong class="d-block text-gray-dark">{{ comment.user.email }}: </strong>
+            {{ comment.comment }}
+            <br>
+            <strong class="d-block text-gray-dark">Note: {{ comment.rating }}/5 </strong>
+        </p>
+    </div>
+    {% endfor %}
+<hr>
+
+{% if app.debug %}
+    <p>Request method: {{ app.request.method }}</p>
+    <p>Application Environment: {{ app.environment }}</p>
+{% endif %}
+
+
+{% endblock %}

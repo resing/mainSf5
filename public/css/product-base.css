@@ -1,0 +1,17 @@
+html {
+	background: #ebebeb;
+}
+
+h1 {
+	font-family: sans-serif;
+	text-align: center;
+	font-weight: normal;
+}
+
+.main-container {
+	width: 1231px;
+	height: 3870px;
+	margin: auto;
+	border-radius: 2px;
+	box-shadow: 0px 3px 11px #cec9c9;
+}
